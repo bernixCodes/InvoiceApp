@@ -117,7 +117,7 @@
         </div>
         <div class="input flex flex-column">
           <label for="paymentTerms"> Payment Terms</label>
-          <select type="text" required id="paymentTerms" v-model="paymentTerms">
+          <select required id="paymentTerms" v-model="paymentTerms">
             <option value="30">Next 30 days</option>
             <option value="60">Next 60 days</option>
           </select>
@@ -186,6 +186,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   name: "invoiceModal",
   data() {
@@ -211,6 +212,12 @@ export default {
       invoiceItemList: [],
       invoiceTotal: 0,
     };
+  },
+  methods: {
+    ...mapMutations(["toggleModal"]),
+    closeInvoice() {
+      this.toggleModal();
+    },
   },
 };
 </script>

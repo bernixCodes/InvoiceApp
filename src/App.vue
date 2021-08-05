@@ -3,7 +3,7 @@
     <div v-if="!mobile" class="app flex flex-column">
       <Navigation />
       <div class="app-content flex flex-column">
-        <InvoiceModal />
+        <InvoiceModal v-if="showInvoiceModal" />
         <router-view />
       </div>
     </div>
@@ -17,6 +17,7 @@
 <script>
 import Navigation from "@/components/Navigation";
 import InvoiceModal from "@/components/InvoiceModal";
+import { mapState } from "vuex";
 export default {
   components: {
     Navigation,
@@ -26,6 +27,9 @@ export default {
     return {
       mobile: null,
     };
+  },
+  computed: {
+    ...mapState(["showInvoiceModal"]),
   },
   created() {
     this.checkSreen();
