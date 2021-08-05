@@ -231,6 +231,9 @@ export default {
   width: 100%;
   height: 100vh;
   overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   @media (min-width: 900px) {
     left: 90px;
   }
@@ -238,8 +241,8 @@ export default {
   .invoice-content {
     position: relative;
     padding: 56px;
-    max-width: 700px;
-    width: 100%;
+    max-width: 650px;
+    width: 70%;
     background-color: #141625;
     color: #fff;
     box-shadow: 10px 4px 6px -1px rgba(0, 0, 0, 0.2),
